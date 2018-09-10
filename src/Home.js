@@ -1,10 +1,15 @@
 import React from 'react';
+import { Icon, Header } from 'semantic-ui-react';
 
 const Home = () => {
   return (
-    <div>
-      <h1>Home</h1>
-    </div>
+    <div className='title'>
+      <Header as='h2' icon textAlign='center' className='header'>
+        <Icon name='space shuttle' />
+        The Space App
+        <Header.Subheader>An app for nerds</Header.Subheader>
+      </Header>
+   </div>
   );
 };
 

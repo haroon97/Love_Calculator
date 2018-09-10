@@ -3,11 +3,11 @@ import { NavLink } from 'react-router-dom';
 
 const Header = () => {
   return (
-    <div>
-      <NavLink to='/' exact={true}>Home</NavLink>
-      <NavLink to='/about'>About</NavLink>
-      <NavLink to='/nasa'>Nasa IOD</NavLink>
-      <NavLink to='/iss'>Space Station</NavLink>
+    <div className='links'>
+      <NavLink to='/' exact={true} className='nav'>Home</NavLink>
+      <NavLink to='/about' className='nav'>About</NavLink>
+      <NavLink to='/nasa' className='nav'>Nasa IOD</NavLink>
+      <NavLink to='/iss' className='nav'>Space Station</NavLink>
     </div>
   );
 };

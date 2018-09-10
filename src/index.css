@@ -2,7 +2,6 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  background-color: darkblue;
 }
 
 .links {
@@ -16,4 +15,14 @@ body {
 
 .title {
   margin-top: 5em;
+}
+
+.video {
+  width: 50%;
+}
+
+.embed {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.4em;
 }

@@ -5,7 +5,6 @@ const Header = () => {
   return (
     <div className='links'>
       <NavLink to='/' exact={true} className='nav'>Home</NavLink>
-      <NavLink to='/about' className='nav'>About</NavLink>
       <NavLink to='/nasa' className='nav'>Nasa IOD</NavLink>
       <NavLink to='/iss' className='nav'>Space Station</NavLink>
     </div>

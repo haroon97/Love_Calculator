@@ -7,6 +7,6 @@ const store = createStore(
   combineReducers({
     nasaPic: nasaImage,
     iss: spaceStation
-  }), applyMiddleware(thunk));
+  }),  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(), applyMiddleware(thunk));
 
 export default store;

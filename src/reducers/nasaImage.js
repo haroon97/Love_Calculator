@@ -1,13 +1,13 @@
 // NASA ASTRONOMY PIC OF THE DAY REDUCER
 
-const initialState = {
+const initState = {
   astronomyPicture: {},
   isError: false,
   isPicFetching: false,
   isPicFetched: false
 }
 
-const nasaImage = (state = initialState, action) => {
+const nasaImage = (state = initState, action) => {
   switch (action.type) {
     case 'FETCHING':
       return {

@@ -5,7 +5,10 @@ const initialState = {
   peopleInSpace: {},
   isFetching: false,
   isFetched: false,
-  isError: false
+  isError: false,
+  isPeopleFetching: false,
+  isPeopleFetched: false,
+  isPeopleError: false
 };
 
 const spaceStation = (state = initialState, action) => {
@@ -13,7 +16,6 @@ const spaceStation = (state = initialState, action) => {
     case 'LOCATION_FETCHING':
       return {
         ...state,
-        peopleInSpace: {},
         isFetching: true,
         isFetched: false,
         isError: false,
@@ -22,7 +24,6 @@ const spaceStation = (state = initialState, action) => {
     case 'LOCATION_FETCHED':
       return {
         ...state,
-        peopleInSpace: {},
         location: action.data,
         isFetched: true,
         isFetching: false,
@@ -31,11 +32,34 @@ const spaceStation = (state = initialState, action) => {
     case 'LOCATION_ERROR':
       return {
         ...state,
-        peopleInSpace: {},
-        Location: {},
+        location: {},
         isFetched: false,
         isFetching: false,
         isError: true
+      }
+    case 'PEOPLE_FETCHING':
+      return {
+        ...state,
+        isPeopleFetching: true,
+        isPeopleFetched: false,
+        isPeopleError: false,
+        peopleInSpace: {}
+      }
+    case 'PEOPLE_FETCHED':
+      return {
+        ...state,
+        isPeopleFetching: false,
+        isPeopleFetched: true,
+        isPeopleError: false,
+        peopleInSpace: action.data
+      }
+    case 'PEOPLE_ERROR':
+      return {
+        ...state,
+        isPeopleFetching: false,
+        isPeopleFetched: false,
+        isPeopleError: true,
+        peopleInSpace: {}
       }
     default:
       return state; 

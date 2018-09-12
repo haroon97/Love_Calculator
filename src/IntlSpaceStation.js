@@ -1,17 +1,43 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { thunkActionCreatorLocation } from './actions/iss';
+import { thunkActionCreatorLocation, thunkActionCreatorPeople } from './actions/iss';
+import { Table } from 'semantic-ui-react';
+import moment from 'moment';
+import Moment from 'react-moment';
 
 class intlSpaceStation extends React.Component {
 
   componentDidMount() {
     setInterval(() => {this.props.dispatch(thunkActionCreatorLocation())}, 5000)
+    this.props.dispatch(thunkActionCreatorPeople());
   }
 
   render() {
     return (
       <div>
-        {this.props.state.iss.isFetched && <h1>{this.props.state.iss.location.iss_position.longitude}</h1>}
+       <Table collapsing>
+        <Table.Header>
+          <Table.Row>
+            <Table.HeaderCell>Name</Table.HeaderCell>
+            <Table.HeaderCell>Status</Table.HeaderCell>
+          </Table.Row>
+        </Table.Header>
+    
+        <Table.Body>
+          <Table.Row>
+            <Table.Cell>Longitude</Table.Cell>
+            <Table.Cell>{this.props.state.iss.isFetched && this.props.state.iss.location.iss_position.latitude}</Table.Cell>
+          </Table.Row>
+          <Table.Row>
+            <Table.Cell>Latitude</Table.Cell>
+            <Table.Cell>{this.props.state.iss.isFetched && this.props.state.iss.location.iss_position.latitude}</Table.Cell>
+          </Table.Row>
+          <Table.Row>
+            <Table.Cell>Timestamp</Table.Cell>
+            <Table.Cell><Moment unix>{this.props.state.iss.location.timestamp}</Moment></Table.Cell>
+          </Table.Row>
+        </Table.Body>
+       </Table>
       </div>
     );
   };

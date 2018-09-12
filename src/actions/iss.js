@@ -19,6 +19,25 @@ export const locationError = () => {
   };
 };
 
+export const peopleFetching = () => {
+  return {
+    type: 'PEOPLE_FETCHING'
+  };
+};
+
+export const peopleFetched = (data) => {
+  return {
+    type: 'PEOPLE_FETCHED',
+    data
+  };
+};
+
+export const peopleError = () => {
+  return {
+    type: 'PEOPLE_ERROR'
+  };
+};
+
 export const thunkActionCreatorLocation = () => {
   store.dispatch(locationFetching());
   return function(dispatch, getState) {
@@ -26,5 +45,15 @@ export const thunkActionCreatorLocation = () => {
     .then((resp) => resp.json())
     .then((data) => dispatch(locationFetched(data)))
     .catch((err) => dispatch(locationError()))
+  };
+};
+
+export const thunkActionCreatorPeople = () => {
+  store.dispatch(peopleFetching());
+  return function(dispatch, getState) {
+    fetch('http://api.open-notify.org/astros.json')
+    .then((resp) => resp.json())
+    .then((data) => dispatch(peopleFetched(data)))
+    .catch((err) => dispatch(peopleError()));
   };
 };

@@ -1,8 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { thunkActionCreatorLocation, thunkActionCreatorPeople } from './actions/iss';
-import { Table } from 'semantic-ui-react';
-import moment from 'moment';
+import { Table, Message } from 'semantic-ui-react';
 import Moment from 'react-moment';
 
 class intlSpaceStation extends React.Component {
@@ -15,6 +14,11 @@ class intlSpaceStation extends React.Component {
   render() {
     return (
       <div>
+        {this.props.state.iss.isPeopleFetched &&  <Message compact>
+          <Message.Header>There are currently {this.props.state.iss.peopleInSpace.number} people in space</Message.Header>
+          <Message.List  items={this.props.state.iss.peopleInSpace.people.map( person => person.name)}/>
+        </Message>}
+        {console.log(this.props.state.iss)}
        <Table collapsing>
         <Table.Header>
           <Table.Row>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { thunkActionCreator } from './actions/nasa';
-import { Embed, Header, Image } from 'semantic-ui-react';
+import { Embed, Header, Image, Loader} from 'semantic-ui-react';
 
 class NasaImage extends React.Component {
 
@@ -11,6 +11,7 @@ class NasaImage extends React.Component {
   render() {
       return (
         <div>
+          {this.props.state.nasaPic.isPicFetching && <Loader active size='massive' inline='centered'/>}
           {this.props.state.nasaPic.astronomyPicture.media_type === 'video' ?  
           <div className='embed'>
             <Embed

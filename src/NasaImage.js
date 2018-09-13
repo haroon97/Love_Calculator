@@ -11,7 +11,7 @@ class NasaImage extends React.Component {
   render() {
       return (
         <div>
-          {this.props.state.nasaPic.isPicFetching && <Loader active size='massive' inline='centered'/>}
+          {this.props.state.nasaPic.isPicFetching && <div className='loader'><Loader active size='massive' inline='centered'/></div>}
           {this.props.state.nasaPic.astronomyPicture.media_type === 'video' ?  
           <div className='embed'>
             <Embed
@@ -23,11 +23,10 @@ class NasaImage extends React.Component {
               aspectRatio='21:9'
               icon='youtube'
           />
-          </div> : <div><Image src={this.props.state.nasaPic.astronomyPicture.url} centered size='large' /></div>}
+          </div> : <div><Image src={this.props.state.nasaPic.astronomyPicture.url} centered size='large' className='img'/></div>}
           
-        {this.props.state.nasaPic.isPicFetched && <Header as='h2' textAlign='center'>
-        {this.props.state.nasaPic.astronomyPicture.title}
-        <Header.Subheader>{this.props.state.nasaPic.astronomyPicture.date}</Header.Subheader>
+        {this.props.state.nasaPic.isPicFetched && <Header as='h2' textAlign='center' inverted color='blue' >
+        <h2 className='h2'>{this.props.state.nasaPic.astronomyPicture.title}</h2>
         </Header>}
         </div>
       );

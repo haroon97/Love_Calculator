@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Baloo+Tammudu');
+
 body {
   margin: 0;
   padding: 0;
@@ -10,14 +12,19 @@ body {
 .links {
   display: flex;
   justify-content: space-evenly;
-}
-
-.nav {
+  font-family: 'Baloo Tammudu';
+  margin-top: 2em;
+  font-size: 1.6em;
   text-decoration: none;
 }
 
 .title {
-  margin-top: 5em;
+  margin-top: 6em;
+}
+
+.h1 {
+  font-size: 3em;
+  font-family: 'Baloo Tammudu';
 }
 
 .video {
@@ -28,4 +35,34 @@ body {
   display: flex;
   justify-content: center;
   margin-top: 1.4em;
+}
+
+.loader {
+  margin-top: 15em;
+}
+
+.img {
+  margin-top: 2em;
+}
+
+.h2 {
+  font-family: 'Baloo Tammudu';
+  font-size: 1.5em;
+}
+
+.message {
+  display: flex;
+  justify-content: center;
+  margin-top: 1em;
+}
+
+.spaceStation {
+  display: flex;
+  justify-content: center;
+  margin-top: 3em;
+}
+
+.info {
+  font-family: 'Baloo Tammudu';
+  font-size: 1em;
 }
